@@ -1,0 +1,13 @@
+.firebase/
+.firebase-debug.log
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+.env
+.env.*
+service-account*.json
+*-service-account*.json
+node_modules/
+dist/
+build/
+*.log

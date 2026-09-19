@@ -1,0 +1,202 @@
+/* Pastel scrapbook journal layer. Loaded after the base site styles. */
+:root {
+  --journal-ink: #6c5869;
+  --journal-line: rgba(158, 122, 151, .14);
+  --journal-paper: rgba(255, 253, 250, .96);
+  --journal-pink: #f2d9e9;
+  --journal-lilac: #e8e0f1;
+  --journal-blue: #e2e7f1;
+  --journal-cream: #fbf1dc;
+}
+body {
+  background-color: #f8eff7;
+  background-image:
+    linear-gradient(var(--journal-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--journal-line) 1px, transparent 1px),
+    radial-gradient(circle at 18% 10%, rgba(242, 217, 233, .9), transparent 24%),
+    radial-gradient(circle at 88% 40%, rgba(226, 231, 241, .8), transparent 22%);
+  background-size: 24px 24px, 24px 24px, auto, auto;
+}
+.site-wrap {
+  position: relative;
+  isolation: isolate;
+  margin-top: 34px;
+  margin-bottom: 34px;
+  border: 1px solid rgba(151, 120, 143, .28);
+  background-color: rgba(255, 252, 250, .86);
+  background-image:
+    linear-gradient(rgba(205, 183, 199, .12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(205, 183, 199, .12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  box-shadow: 0 25px 65px rgba(94, 67, 91, .18);
+  overflow: visible;
+}
+.site-wrap > *:not(.journal-decoration-layer) { position: relative; z-index: 2; }
+.site-nav { border-radius: 16px 16px 0 0; }
+.profile-banner { margin: 12px 12px 0; border: 10px solid rgba(255, 253, 250, .94); border-bottom-width: 20px; box-shadow: 0 8px 22px rgba(86, 60, 83, .13); }
+.profile-tabs { margin: 0 12px; border-radius: 0 0 15px 15px; }
+.profile-layout { position: relative; padding-top: 34px; }
+.profile-layout::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 11px;
+  bottom: 36px;
+  left: 19px;
+  right: 19px;
+  border: 1px dashed rgba(151, 120, 143, .25);
+  background: rgba(255, 253, 250, .34);
+  pointer-events: none;
+}
+.profile-layout > * { position: relative; z-index: 1; }
+.profile-card, .sidebar-box, .post-card, .about-studio, .queue-card {
+  border-color: rgba(153, 121, 145, .31);
+  background-color: var(--journal-paper);
+  box-shadow: 4px 5px 0 rgba(224, 208, 219, .62), 0 13px 26px rgba(90, 64, 87, .08);
+}
+.profile-card { transform: rotate(-.45deg); }
+.sidebar-box:nth-of-type(even) { transform: rotate(.35deg); }
+.content-filter {
+  margin-bottom: 18px;
+  padding: 0 18px;
+  border: 1px dashed rgba(151, 120, 143, .38);
+  border-radius: 9px;
+  background: rgba(255, 253, 250, .83);
+  box-shadow: 3px 4px 0 rgba(229, 215, 225, .58);
+}
+.post-card { overflow: visible; }
+.post-card .post-head { position: relative; border-bottom-style: dashed; }
+.post-card .post-head::after {
+  content: '';
+  position: absolute;
+  right: 19px;
+  bottom: -1px;
+  width: 74px;
+  border-bottom: 3px double rgba(174, 137, 163, .35);
+}
+.journal-tape {
+  position: absolute;
+  z-index: 5;
+  top: -11px;
+  left: 50%;
+  width: 90px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(240, 204, 226, .72);
+  border-left: 1px dashed rgba(141, 106, 132, .22);
+  border-right: 1px dashed rgba(141, 106, 132, .22);
+  box-shadow: 0 2px 4px rgba(99, 72, 95, .07);
+  pointer-events: none;
+}
+.post-card:nth-child(even) > .journal-tape { transform: translateX(-50%) rotate(2deg); background: rgba(220, 224, 241, .77); }
+.journal-card-sticker {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  right: -14px;
+  display: grid;
+  place-items: center;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 7px;
+  border: 3px solid #fffdfb;
+  border-radius: 46% 54% 51% 49% / 52% 44% 56% 48%;
+  background: var(--journal-lilac);
+  color: #846a7f;
+  font-size: 18px;
+  line-height: 1;
+  filter: drop-shadow(2px 4px 3px rgba(80, 54, 77, .15));
+  transform: rotate(7deg);
+  pointer-events: none;
+}
+.post-card:nth-child(3n) > .journal-card-sticker { background: var(--journal-cream); transform: rotate(-8deg); }
+.journal-decoration-layer { position: absolute; z-index: 4; inset: 0; overflow: visible; pointer-events: none; }
+.journal-floating-sticker {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 4px solid #fffdfa;
+  color: #7f687b;
+  filter: drop-shadow(3px 5px 4px rgba(82, 57, 79, .15));
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+.journal-sticker-star { top: 318px; right: -28px; width: 68px; height: 68px; border-radius: 45% 55% 48% 52%; background: var(--journal-pink); font-size: 31px; transform: rotate(10deg); }
+.journal-sticker-heart { top: 760px; left: -25px; width: 62px; height: 56px; border-radius: 48% 52% 44% 56%; background: var(--journal-blue); font-size: 26px; transform: rotate(-11deg); }
+.journal-sticker-bow { top: 1130px; right: -23px; min-width: 76px; min-height: 51px; border-radius: 50%; background: var(--journal-cream); font-size: 24px; transform: rotate(6deg); }
+.journal-ticket {
+  position: absolute;
+  top: 247px;
+  left: 31px;
+  padding: 8px 13px;
+  border: 1px dashed #bda8b8;
+  background: #fffdf9;
+  color: #937d8e;
+  font-size: 9px;
+  letter-spacing: .15em;
+  transform: rotate(-3deg);
+  box-shadow: 3px 4px 0 rgba(226, 211, 222, .6);
+}
+.journal-page-label {
+  position: absolute;
+  z-index: 5;
+  top: 61px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  padding: 5px 16px;
+  border: 2px solid #fffdfa;
+  border-radius: 999px;
+  background: var(--journal-cream);
+  color: #8d7588;
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  box-shadow: 2px 4px 5px rgba(81, 56, 78, .1);
+}
+.commission-list.commission-type-grid { padding-top: 13px; }
+.commission-type-card { position: relative; padding: 11px; border: 1px solid rgba(161, 129, 153, .25); background: #fffdfb; box-shadow: 4px 5px 0 rgba(225, 210, 222, .65); }
+.commission-type-card:nth-child(3n+1) { transform: rotate(-1deg); }
+.commission-type-card:nth-child(3n+2) { transform: rotate(.8deg); }
+.commission-type-card:nth-child(3n) { transform: rotate(-.35deg); }
+.commission-type-title { padding-top: 2px; }
+.commission-type-image { border-radius: 4px; border-width: 7px; border-color: #fff; outline: 1px solid rgba(161, 129, 153, .25); }
+.commission-type-card::after {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  top: 51px;
+  left: 50%;
+  width: 58px;
+  height: 16px;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  background: rgba(239, 207, 226, .72);
+  border-left: 1px dashed rgba(141, 106, 132, .22);
+  border-right: 1px dashed rgba(141, 106, 132, .22);
+  pointer-events: none;
+}
+.commission-rate-table { background-color: #fffdfb; background-image: repeating-linear-gradient(0deg, transparent 0 35px, rgba(171, 143, 164, .13) 36px); }
+.commission-rate-table caption { border-bottom: 1px dashed #cbb5c5; }
+.terms-grid, .commission-guide-body { background-image: linear-gradient(rgba(193, 170, 187, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(193, 170, 187, .09) 1px, transparent 1px); background-size: 22px 22px; }
+.site-footer { margin-top: 18px; border-top-style: dashed; background: rgba(255, 253, 250, .7); }
+@media (max-width: 850px) {
+  .site-wrap { margin: 0; border: 0; }
+  .profile-layout::before { left: 9px; right: 9px; }
+  .journal-sticker-star { right: 2px; }
+  .journal-sticker-heart { left: 2px; }
+  .journal-sticker-bow { right: 2px; }
+}
+@media (max-width: 650px) {
+  body { background-size: 20px 20px, 20px 20px, auto, auto; }
+  .profile-banner { margin: 7px 7px 0; border-width: 6px 6px 17px; }
+  .profile-tabs { margin: 0 7px; }
+  .profile-layout { padding-top: 24px; }
+  .profile-layout::before { bottom: 23px; }
+  .journal-floating-sticker, .journal-ticket { display: none; }
+  .journal-page-label { top: 56px; max-width: 66vw; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .journal-card-sticker { right: 7px; top: -15px; min-width: 35px; min-height: 35px; font-size: 15px; }
+  .journal-tape { width: 70px; height: 19px; top: -9px; }
+  .commission-type-card { transform: none !important; }
+}
+
+/* The private editing workspace stays clean and practical. */
+.visual-editor .journal-card-sticker, .visual-editor .journal-tape { display: none; }
